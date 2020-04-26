@@ -32,27 +32,37 @@ let mkDart = { channel, release, sha256 }: (
   }
 ); in
 
-let dart_2-1-0 = mkDart {
+let dart-2_7_2 = mkDart {
   channel = "stable";
-  release = "2.1.0";
+  release = "2.7.2";
   sha256 =
     if self.stdenv.isDarwin
-    then "0sm7b835f8gzcq30qlf1aslckhpy424cv9l5rgcg60sy5lxh2xjm"
-    else "1dnwi85cxmfx2c0ks200v6dic3wgzgsv6wy2svgdn1n5zcl30rr4";
+    then "111zl075qdk2zd4d4mmfkn30jmzsri9nq3nspnmc2l245gdq34jj"
+    else "0vvsgda1smqdjn35yiq9pxx8f5haxb4hqnspcsfs6sn5c36k854v";
 }; in
 
-let dart_2-1-0_dev-9-4 = mkDart {
-  channel = "dev";
-  release = "2.1.0-dev.9.4";
+let dart-2_8_0-20_11_beta = mkDart {
+  channel = "beta";
+  release = "2.8.0-20.11.beta";
   sha256 =
     if self.stdenv.isDarwin
-    then "0mhdz2zahb9yy717lwsv6jzia8xb76n6vbxq970d6g8pl5cw2fpd"
-    else "0vrk0pkw200104zvfdm10d50jgflq4ayrr9hfpxbxsknjkmwzaw5";
+    then "1lg131xl15agj737vvdc77zgbrpbswbds5nbbwwpdybccvhxwxfm"
+    else "1zgi22gggysml0qhzm9a5bva35lv3ngx2kkddjpg5ay5x9b1nc9k";
+}; in
+
+let dart-2_9_0-3_0_dev = mkDart {
+  channel = "dev";
+  release = "2.9.0-3.0.dev";
+  sha256 =
+    if self.stdenv.isDarwin
+    then "150h04x7zfr5cqv4kz8niqdymqqr0ds38c3gy9wg0lg7w7fv82ka"
+    else "1zk52qbmhdbifmfdifhz64ssq3acwfrcqhnqmfkbavihm6z8h34i";
 }; in
 
 {
-  dart = dart_2-1-0;
+  dart = dart-2_7_2;
   inherit mkDart;
-  inherit dart_2-1-0;
-  inherit dart_2-1-0_dev-9-4;
+  inherit dart-2_7_2;
+  inherit dart-2_8_0-20_11_beta;
+  inherit dart-2_9_0-3_0_dev;
 }
